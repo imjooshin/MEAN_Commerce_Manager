@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<h3>Product List</h3>
+
+<a href="#" [routerLink]="['/products', 'new']">Add New Product</a>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>            
+                <th>Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product._id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.price}}</td>
+                <td> 
+                    <button [routerLink]="['edit',product._id]">EDIT</button>
+                    <button [routerLink]="['/products', product._id]">DETAILS</button> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

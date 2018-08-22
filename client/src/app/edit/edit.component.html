@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<div *ngIf="product" class="container">
+    <div *ngFor="let error of errors">
+        <p class="error">{{error}}</p>
+    </div>
+    {{ product | json }}
+  <form (submit)="update()" class="updating">
+      
+    <div class="form-group">
+        <!-- <h1 *ngIf="product.errors.name" >{{ product.errors.name.message }}</h1> -->
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="{{product.name}}" [(ngModel)]="product.name" name="product.name">
+    </div>
+
+    <div class="form-group">
+        <!-- <h1 *ngIf="product.errors.quantity" >{{ product.errors.quantity.message }}</h1> -->
+        <label for="quantity">Quantity:</label>
+        <input type="number" class="form-control" id="quantity" [(ngModel)]="product.quantity" name="product.quantity">
+    </div>
+
+    <div class="form-group">
+        <!-- <h1 *ngIf="product.errors.price" >{{ product.errors.price.message }}</h1> -->
+        <label for="price">Price:</label>
+        <input type="number" class="form-control" id="price" [(ngModel)]="product.price" name="product.price">
+    </div>
+
+        <a (click)="reset()" class="btn btn-md btn-warning">RESET</a>
+        <input type="submit" class="btn btn-success" value="UPDATE" />
+        
+  </form>
+</div>
