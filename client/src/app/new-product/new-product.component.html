@@ -1,20 +1,24 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<form (submit)="create()" >
-  <h1 *ngIf="product.errors.name" >{{ product.errors.name.message }}</h1>
-  
-  <p>Name:<input type="text" name="product.name" [(ngModel)]="product.name" placeholder="Name" /></p>
+<div class="new">
+    <h3 class="h3 mb-3 font-weight-normal">Add a Product</h3>
 
-  <h1 *ngIf="product.errors.quantity" >{{ product.errors.quantity.message }}</h1>
-  
-  <p>Quantity:<input type="number" name="product.quantity" [(ngModel)]="product.quantity" /></p>
+    <form (submit)="create()" >
+      <h1 *ngIf="product.errors.name" >{{ product.errors.name.message }}</h1>
+      
+      <p>Name:<input class="form-control" type="text" name="product.name" [(ngModel)]="product.name" placeholder="Name" /></p>
 
-  <h1 *ngIf="product.errors.price" >{{ product.errors.price.message }}</h1>
-  
-  <p>Price:<input type="number" name="product.price" [(ngModel)]="product.price" /></p>
-  
-  <a (click)="reset()" class="btn btn-md btn-warning">RESET</a>
+      <h1 *ngIf="product.errors.quantity" >{{ product.errors.quantity.message }}</h1>
+      
+      <p>Quantity:<input class="form-control" type="number" name="product.quantity" [(ngModel)]="product.quantity" /></p>
 
-  <input type="submit"  value="CREATE" class="btn btn-md btn-primary"/>
+      <h1 *ngIf="product.errors.price" >{{ product.errors.price.message }}</h1>
+      
+      <p>Price:<input class="form-control" type="number" name="product.price" [(ngModel)]="product.price" /></p>
+      
+      <a (click)="reset()" class="btn btn-md btn-warning">RESET</a>
 
-</form>
+      <input type="submit"  value="CREATE" class="btn btn-md btn-primary"/>
+
+    </form>
+</div>
